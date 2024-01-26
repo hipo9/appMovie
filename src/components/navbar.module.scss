@@ -1,0 +1,15 @@
+@use '../../src/styles/base/variables'as v;
+@use '../../src/styles/base/mixins'as m;
+
+.navbar {
+    width: 100%;
+    height: 5.6rem;
+    background: v.$blue;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: v.$white;
+    gap: 1rem;
+    padding: 0 2rem;
+}
+

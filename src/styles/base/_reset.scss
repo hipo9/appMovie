@@ -4,6 +4,7 @@
 html {
     font-size: 62.5%;
     box-sizing: border-box;
+    
 }
 
 *,
@@ -18,12 +19,11 @@ body {
     font-size: 1.6rem;
     width: 100%;
     height: 100%;
-
 }
 
 p {
     color: v.$black;
-
+    font-family: v.$fontPrincipal;
 }
 
 .container {
@@ -39,6 +39,8 @@ a {
 img {
     max-width: 100%;
     display: block;
+    width: 100%;
+    height: 100%;
 }
 
 h1,

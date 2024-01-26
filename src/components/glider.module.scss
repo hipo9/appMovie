@@ -1,0 +1,22 @@
+@use '../styles/base/variables'as v;
+@use '../styles/base/mixins'as m;
+
+.container {
+    padding: .4rem;
+    margin: .4rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+    /* X, Y, desenfoque, color de sombra */
+    //transition: box-shadow 0.3s ease;
+    //transition: background-color 0.3s ease;
+
+
+//    &:hover {
+//
+//        //box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+//        background-color: v.$grayLight3;
+//        /* Cambia la sombra al pasar el mouse */
+//
+//    }
+
+}

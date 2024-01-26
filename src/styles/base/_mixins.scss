@@ -56,3 +56,36 @@ $sizeTxt:
     gap: $espaciado;
     grid-template-columns: repeat($columnas, 1fr);
 }
+
+@mixin scrollHorizontal {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+
+    /* el signo mayor indica que se va a plciar al primer hijo 
+    y eñ asterisco(*) hae referencia a una clase o id*/
+
+    >* {
+        scroll-snap-align: center;
+    }
+}
+
+@mixin headingBorder($colorText, $colorLinea) {
+    font-size: 3rem;
+    display: inline-block;
+    margin-top: 5rem;
+    color: $colorText;
+
+    @include tablet {
+        margin-top: 0;
+    }
+
+    &::after {
+        content: '';
+        background-color: lighten($color: $colorLinea, $amount: 0.3);
+        height: 1rem;
+        width: calc(100% + 1rem);
+        display: block;
+        margin: -1.4rem 0 0 0;
+    }
+}

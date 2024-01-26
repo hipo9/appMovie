@@ -1,0 +1,120 @@
+@use '../styles/base/mixins'as m;
+@use '../styles/base/variables'as v;
+
+.detail {
+    padding: 2rem;
+    gap: 1rem;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+    font-size: 1.8rem;
+
+    @include m.phone {
+        width: 100%;
+
+    }
+
+    @include m.tablet {
+        flex-direction: row;
+    }
+
+    &__history {
+        @include m.headingBorder(v.$blueDark, v.$skyblue);
+    }
+
+    &__budget {
+        @include m.headingBorder(v.$blueDark, v.$skyblue);
+        //margin-bottom: 2rem;
+    }
+
+    &__genres {
+        @include m.headingBorder(v.$blueDark, v.$skyblue);
+    }
+
+    &__budgetSpan {
+        font-size: 2rem;
+        color: v.$gray;
+
+    }
+
+    &__carousel {
+
+        height: 10rem;
+        width: 100%;
+        margin: 0 auto;
+        padding: 1rem;
+        border-radius: 1rem;
+        gap: 2rem;
+        display: flex;
+        align-items: center;
+
+        @include m.tablet {
+            width: 40rem;
+        }
+
+        @include m.tablet {
+            width: 100%;
+        }
+    }
+
+}
+
+.cast {
+    display: flex;
+    justify-content: flex-start;
+
+    max-width: 25rem;
+
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    border-radius: 1rem;
+    padding-left: 1rem;
+    box-shadow: 0 0 2px 1px rgba($color:v.$black, $alpha: 0.3);
+    background-color: v.$blue;
+    color: v.$white;
+    //&:hover {
+    //    background-color: v.$blue;
+    //    color: v.$white;
+    //}
+
+    &__containerName {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 1rem;
+        height: 8rem;
+        width: 14em;
+
+
+    }
+
+    &__containerImg {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    &__img {
+        height: 6rem;
+        border-radius: 1rem;
+
+    }
+
+    &__name {
+        font-size: 1.6rem;
+        margin: 0;
+        margin: .2rem;
+
+        &__phone {
+            font-size: 1.8rem;
+        }
+    }
+
+    &__character {
+        font-size: 1.6rem;
+        margin: 0;
+        color: v.$white;
+    }
+
+}

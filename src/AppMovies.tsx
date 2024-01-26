@@ -1,10 +1,9 @@
-import React from 'react'
+
+import { HomePage } from './pages/HomePage'
+import { AppRouter } from './router/AppRouter'
 
 export const AppMovies = () => {
     return (
-        <>
-            <div>AppMovies</div>
-            <p>Hola</p>
-        </>
+        <AppRouter />
     )
 }

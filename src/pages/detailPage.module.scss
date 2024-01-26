@@ -1,0 +1,105 @@
+@use '../styles/base/mixins'as m;
+@use '../styles/base/variables'as v;
+
+.detail {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    @include m.phone {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 5rem;
+    }
+
+    //es parate donde esta la historia, casting , etc..
+    &__info {
+        display: flex;
+
+
+        width: 100%;
+
+        @include m.phone {
+            width: 70%;
+
+        }
+
+        //
+        //        @include m.tablet {
+        //            width: 70rem;
+        //        }
+        //
+        //        @include m.desktop {
+        //            width: 80rem;
+        //        }
+    }
+
+
+}
+
+/*********************
+ * CARD DE LA IMAGEN *
+ *********************/
+.card {
+    margin-top: 2rem;
+    flex-grow: 1;
+    height: 50rem;
+    width: 100%;
+    box-shadow: 0px 0px 2px 2px rgba($color: #000000, $alpha: 0.3);
+    padding: 2rem;
+    border-radius: 1rem;
+    transition: background-color 0.3s ease;
+    color: v.$blue;
+    @include m.tablet {
+
+        height: 55rem;
+
+
+    }
+
+    &:hover {
+        background-color: v.$blue;
+        color: v.$white;
+    }
+
+    &__titlesContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0;
+
+    }
+
+    &__titleEs {
+        margin: 0rem;
+        font-size: 1.6rem;
+
+        @include m.tablet {
+            font-size: 2rem;
+        }
+    }
+
+    &__titleEn {
+        color: green;
+        color: v.$grayLight;
+        font-size: 1.6rem;
+
+        font-weight: 700;
+        margin: 0 1rem 0 0;
+    }
+
+    &__imgContainer {
+        height: 85%;
+        margin-bottom: 1rem;
+        border-radius: 1rem;
+    }
+
+    &__img {
+        border-radius: 1rem;
+    }
+
+}
