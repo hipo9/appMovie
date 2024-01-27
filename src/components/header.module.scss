@@ -1,4 +1,62 @@
-.img{
-width: 100%;
-height: 20rem;
+@use '../styles/base/variables'as v;
+@use '../styles/base/mixins'as m;
+
+.header {
+    position: relative;
+    background-size: contain;
+    z-index: 0;
+    height: 48rem;
+
+    &__container {
+        position: absolute;
+        bottom: 0;
+        background-color: transparent;
+        padding: 10rem 5rem;
+    }
+
+    &__img {
+        display: inline-block;
+        height: 45rem;
+        object-fit: fill;
+    }
+
+    &__opacity {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    &__title {
+
+        color: white;
+        font-size: 2.8rem;
+
+    }
+
+    &__overview {
+        color: v.$white;
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+    }
+
+    &__btn {
+        display: block;
+        padding: 1rem;
+        width: 20rem;
+        border: none;
+        background-color: transparent;
+        font-weight: bold;
+        border: v.$black;
+        color: v.$white;
+        background-color: rgba($color: v.$black, $alpha: .5);
+
+        &:hover {
+            background-color: rgba($color: v.$black, $alpha: 0.7);
+        }
+    }
+
+
 }

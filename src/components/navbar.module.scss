@@ -11,5 +11,6 @@
     color: v.$white;
     gap: 1rem;
     padding: 0 2rem;
+    position: relative;
+    z-index: 9999;
 }
-

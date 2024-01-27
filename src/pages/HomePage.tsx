@@ -10,6 +10,7 @@ import { thunkGetPopular, thunkgGetMovieDetail } from '../store/thunk';
 import { AnyAction } from '@reduxjs/toolkit';
 import { GliderP } from '../components/Glider';
 import { HorizontalSlider } from '../components/HorizontalSlider';
+import { Navbar } from '../components/Navbar';
 
 
 
@@ -20,6 +21,7 @@ export const HomePage = () => {
     // Variable de estado para rastrear si el método ya se ejecutó
     const dispatch = useDispatch();
     const { popular, isLoading, nowPlaying, topRated, upcoming } = useSelector((state: RootState) => state.movies);
+    
 
 
     useEffect(() => {
@@ -27,7 +29,6 @@ export const HomePage = () => {
         console.log('efect 2');
 
     }, [])
-    
 
     const getAllMovies = () => {
         if (isLoading) return;
@@ -37,15 +38,16 @@ export const HomePage = () => {
     }
 
     return (
-        <MovieLayout title='Estrenos'>
-            {/*<Header />*/}
-
-            <div className={stl.container}>
-                <div className={stl.container__popular}>
-                    <h1 className={stl.container__title}>Hola</h1>
-                    <GliderP />
-                </div>
-                {/*<div className={stl.container__nowP}>
+        <>
+            <Navbar />
+                <Header />
+            <MovieLayout title='Estrenos'>
+                <div className={stl.container}>
+                    <div className={stl.container__popular}>
+                        <h1 className={stl.container__title}>Hola</h1>
+                        <GliderP />
+                    </div>
+                    {/*<div className={stl.container__nowP}>
                     <HorizontalSlider category={nowPlaying} title='Now Playing' />
                 </div>
                 <div className={stl.container__upC} >
@@ -55,10 +57,11 @@ export const HomePage = () => {
                 <div className={stl.container__topR}>
                     <HorizontalSlider category={topRated} title='Top Rated' />
                 </div>*/}
-            </div>
-            {/* topRated ,
+                </div>
+                {/* topRated ,
              upcomming */}
-        </MovieLayout>
+            </MovieLayout>
+        </>
     )
 }
 
