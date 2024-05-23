@@ -21,7 +21,7 @@ export const DetailPage = () => {
     const envVariable = useRef(getEnvVariables());
     const { VITE_API_URL } = envVariable.current;
 
-    if (!movieFull) return
+    
 
     return (
         //contendor en donde esta el cartel y el titulo de la pelicula
@@ -32,11 +32,11 @@ export const DetailPage = () => {
                     <div className={stl.detail} >
                         <div className={stl.card}>
                             <div className={stl.card__imgContainer}>
-                                <img className={stl.card__img} src={VITE_API_URL + movieFull.poster_path} alt='img' />
+                                <img className={stl.card__img} src={VITE_API_URL + movieFull?.poster_path} alt='img' />
                             </div>
                             <div className={stl.card__titlesContainer}>
-                                <h2 className={stl.card__titleEs}>{movieFull.title}</h2>
-                                <p className={stl.card__titleEn}>{movieFull.original_title}</p>
+                                <h2 className={stl.card__titleEs}>{movieFull?.title}</h2>
+                                <p className={stl.card__titleEn}>{movieFull?.original_title}</p>
                             </div>
                         </div>
                         {/* es el contendor los detalles de la pelicila como historia, presupesto, casting... */}
