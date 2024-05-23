@@ -1,19 +1,24 @@
-import { Navbar } from '../components/Navbar';
-import stl from './movieLayout.module.scss';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store';
+import { LoadingComponent } from '../components';
+import { useReducer, useRef } from 'react';
 
 interface Props {
     children: any;
-    title: string
 }
-export const MovieLayout = ({ children, title }: Props) => {
-    console.log('en el layout');
+import stl from './movieLayout.module.scss';
+export const MovieLayout = ({ children }: Props) => {
+    const { isLoading, } = useSelector((state: RootState) => state.movies);
+    const style = useRef(stl.layout);
+    console.log(style.current);
     
+
     return (
         <>
-            {/*<Navbar />*/}
-            <div className='container'>
-                {children}
-
+            <div className={stl.layout}>
+                {(isLoading) ? <LoadingComponent /> :
+                    children
+                }
             </div>
         </>
     );

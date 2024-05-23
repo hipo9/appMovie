@@ -13,14 +13,16 @@
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+        gap: 1rem;
+    }
+
+    @include m.desktop {
         gap: 5rem;
     }
 
     //es parate donde esta la historia, casting , etc..
     &__info {
         display: flex;
-
-
         width: 100%;
 
         @include m.phone {
@@ -41,24 +43,36 @@
 
 }
 
-/*********************
- * CARD DE LA IMAGEN *
- *********************/
+/************************
+ * CARD DEL LA PELUCULA *
+ ************************/
 .card {
     margin-top: 2rem;
     flex-grow: 1;
-    height: 50rem;
+    height: 48rem;
     width: 100%;
     box-shadow: 0px 0px 2px 2px rgba($color: #000000, $alpha: 0.3);
     padding: 2rem;
     border-radius: 1rem;
     transition: background-color 0.3s ease;
     color: v.$blue;
+    //background-color: green;
+    //transform: background-color .3s ea;
+    transition: background-color .3s ease;
+
+
+    @include m.phone {
+        height: 30rem;
+    }
+
+
     @include m.tablet {
+        height: 40rem;
 
+    }
+
+    @include m.desktop {
         height: 55rem;
-
-
     }
 
     &:hover {
@@ -67,10 +81,9 @@
     }
 
     &__titlesContainer {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
         margin: 0;
+        //background-color: red;
+
 
     }
 
@@ -93,13 +106,25 @@
     }
 
     &__imgContainer {
-        height: 85%;
+        height: 90%;
         margin-bottom: 1rem;
         border-radius: 1rem;
+
+        @include m.phone {
+            // height: 70%;
+        }
+
     }
 
     &__img {
         border-radius: 1rem;
+        //!revisar
+        //   @include m.phone {
+        //       //height: 40%;
+        //       //width: 15rem;
+        //       object-fit: contain;
+        //   }
+        //height: 100%;
     }
 
 }

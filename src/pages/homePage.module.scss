@@ -1,17 +1,10 @@
 @use '../../src/styles/base/mixins'as m;
 
-.home {
-background-color: blue;
-
-
-
-    @include m.tablet {
-        height: 35rem;
-    }
-
-    
+.container {
     &__title {
-         text-align: center;
+        text-align: center;
+        margin: 1rem 0rem;
     }
+
     &__popular {}
 }

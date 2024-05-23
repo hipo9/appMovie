@@ -1,65 +1,43 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { MovieLayout } from '../layout/MovieLayout'
 import stl from './homePage.module.scss'
-
-
-import { Header } from '../components/Header';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../store/store';
-import { thunkGetPopular, thunkgGetMovieDetail } from '../store/thunk';
 import { AnyAction } from '@reduxjs/toolkit';
-import { GliderP } from '../components/Glider';
-import { HorizontalSlider } from '../components/HorizontalSlider';
-import { Navbar } from '../components/Navbar';
-
-
-
-
+import { RootState } from '../store/store';
+import { thunkGetHeaderMovie, thunkGetMovies } from '../store/thunk';
+import { HorizontalSlider, Navbar, Header } from '../components';
+import { getEnvVariables } from '../helpers';
+import { LoadingComponent } from '../components/LoadingComponent';
 
 
 export const HomePage = () => {
-    // Variable de estado para rastrear si el método ya se ejecutó
     const dispatch = useDispatch();
-    const { popular, isLoading, nowPlaying, topRated, upcoming } = useSelector((state: RootState) => state.movies);
-    
-
+    const { popular, isLoad, topRated, upcoming } = useSelector((state: RootState) => state.movies);
 
     useEffect(() => {
-        getAllMovies()
-        console.log('efect 2');
-
+        dispatch(thunkGetHeaderMovie() as unknown as AnyAction);
+        if (isLoad) return;
+        dispatch(thunkGetMovies() as unknown as AnyAction);
     }, [])
 
-    const getAllMovies = () => {
-        if (isLoading) return;
-        dispatch(thunkGetPopular() as unknown as AnyAction);
-        dispatch(thunkgGetMovieDetail('787699') as unknown as AnyAction);
-
-    }
 
     return (
         <>
-            <Navbar />
-                <Header />
-            <MovieLayout title='Estrenos'>
-                <div className={stl.container}>
-                    <div className={stl.container__popular}>
-                        <h1 className={stl.container__title}>Hola</h1>
-                        <GliderP />
-                    </div>
-                    {/*<div className={stl.container__nowP}>
-                    <HorizontalSlider category={nowPlaying} title='Now Playing' />
-                </div>
-                <div className={stl.container__upC} >
 
-                    <HorizontalSlider category={upcoming} title='Up coming' />
-                </div>
-                <div className={stl.container__topR}>
-                    <HorizontalSlider category={topRated} title='Top Rated' />
-                </div>*/}
-                </div>
-                {/* topRated ,
-             upcomming */}
+            <Navbar />
+            <Header />
+            <MovieLayout >
+                <main className={stl.container}>
+                    <div className={stl.container__popular}>
+                        <HorizontalSlider category={popular} title='Mas populares' />
+                    </div>
+                    <div className={stl.container__upC} >
+                        <HorizontalSlider category={upcoming} title='Proximamente' />
+                    </div>
+                    <div className={stl.container__topR}>
+                        <HorizontalSlider category={topRated} title='Mejor Valorado' />
+                    </div>
+                </main>
             </MovieLayout>
         </>
     )

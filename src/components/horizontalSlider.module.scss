@@ -1,4 +1,31 @@
-//.test {
-//    display: flex;
-//    flex-direction: column;
-//}
+@use '../styles/base/mixins'as m;
+@use '../styles/base/variables'as v;
+
+
+.carousel {
+    padding: 1rem;
+
+    &__title {
+        @include m.headingBorder(v.$black, v.$skyblue);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+}
+
+.card {
+    margin: 1rem 1rem;
+
+    box-shadow: 0 0 2px 1px rgba($color: v.$black, $alpha: 0.5);
+    padding: .5rem;
+    border-radius: 1rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: v.$blue;
+    }
+
+    &__img {
+        border-radius: 1rem;
+    }
+}

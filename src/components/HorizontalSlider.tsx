@@ -1,29 +1,30 @@
 import Glider from 'react-glider';
-
 import 'glider-js/glider.min.css';
-import { useSelector } from 'react-redux';
-import { RootState } from '../store/store';
 import stl from './horizontalSlider.module.scss'
 import { Movie } from '../interfaces/movieInterface';
-
+import { Link } from 'react-router-dom';
+import { useRef } from 'react';
+import { getEnvVariables } from '../helpers';
 
 interface Props {
     category: Movie[];
     title?: string
 }
 export const HorizontalSlider = ({ category, title }: Props) => {
-    const url = `https://image.tmdb.org/t/p/w500/`;
+
+    const envVariable = useRef(getEnvVariables());
+    const { VITE_API_URL } = envVariable.current;
 
     return (
-        <div>
-            <h2>{title}</h2>
+        <div className={stl.carousel}>
+            <h2 className={stl.carousel__title}>{title}</h2>
             <Glider
                 className="glider-container"
                 hasArrows
+                scrollLock={false}
                 slidesToShow={1}
-                draggable
+                //draggable //scroll por pantalla
                 slidesToScroll={1}
-                //skipTrack   
                 responsive={[
                     {
                         breakpoint: 0,
@@ -35,27 +36,21 @@ export const HorizontalSlider = ({ category, title }: Props) => {
                         breakpoint: 480,
                         settings: {
                             slidesToShow: 5,
-                            slidesToScroll: "auto",
-                            itemWidth: 150,
-                            duration: 0.25,
                         },
                     },
                     {
                         breakpoint: 768,
                         settings: {
                             slidesToShow: "auto",
-                            slidesToScroll: "auto",
-                            itemWidth: 150,
-
-                            duration: 0.25,
                         },
                     },
                 ]}
             >
                 {category.map(n => (
-                    <div className={stl.container} key={n.id}>
-
-                        <img src={url + n.poster_path} alt="img" className={stl.container__img} />
+                    <div className={stl.card} key={n.id}>
+                        <Link to={`/movie/${n.id}`}>
+                            <img src={VITE_API_URL + n.poster_path} alt="img" className={stl.card__img} />
+                        </Link>
                     </div>)
                 )}
 

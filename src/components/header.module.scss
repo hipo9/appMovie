@@ -7,11 +7,30 @@
     z-index: 0;
     height: 48rem;
 
+
     &__container {
+
         position: absolute;
         bottom: 0;
         background-color: transparent;
         padding: 10rem 5rem;
+
+        @include m.desktop {
+            width: 60%;
+        }
+    }
+
+    &__containerTxt {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        
+
+        @include m.phone {
+            justify-content: flex-start;
+        }
+
     }
 
     &__img {
@@ -33,17 +52,20 @@
 
         color: white;
         font-size: 2.8rem;
+        margin-bottom: 2rem;
 
     }
 
     &__overview {
         color: v.$white;
         font-size: 1.6rem;
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
+
     }
 
     &__btn {
         display: block;
+        position: relative;
         padding: 1rem;
         width: 20rem;
         border: none;
@@ -51,10 +73,11 @@
         font-weight: bold;
         border: v.$black;
         color: v.$white;
-        background-color: rgba($color: v.$black, $alpha: .5);
+        background-color: rgba($color: v.$black, $alpha: .6);
 
         &:hover {
-            background-color: rgba($color: v.$black, $alpha: 0.7);
+            background-color: rgba($color: v.$black, $alpha: 0.8);
+            cursor: pointer;
         }
     }
 

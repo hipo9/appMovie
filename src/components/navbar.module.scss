@@ -13,4 +13,13 @@
     padding: 0 2rem;
     position: relative;
     z-index: 9999;
+    font-weight: bold;
+
+
+    &__link {
+        color: v.$white;
+        &:hover {
+            color: v.$skyblue;
+        }
+    }
 }
